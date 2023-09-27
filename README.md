@@ -1,3 +1,4 @@
+
 # Design Of Operating System - LAB
 
 ## Day 01 - Basic Commands
@@ -164,3 +165,75 @@ Upon pressing *enter*, the file *file_name* is opened for us to type in our data
 
 * **diff** : Used to display the difference in the files by comparing them line by line.
 * **ls -l**: Outputs in it's first line the number of disc blocks that the files in the current directory have occupied.
+
+---
+
+
+## Day 02 - Basic Commands
+
+## Class Notes
+
+-**who**: It displays data about all the users who have logged into the system currently.
+
+- **whoami**: It displays name of the user
+- **date**: Displays the current date
+- **cal**: Displays the calendar of the current month
+- **umask**: It shows what permissions are supposed to be denied or suppressed.
+		`Output: 0002`
+
+---
+### Inode:
+- All entities in unix are treated as files and all information related to these files are stored in an *Inode* table in the disk
+- For each file, there is an *Inode* entry in the table. Each entry contains details like 
+ *1. Owner of the file*, 
+ *2. Group to which the owner belongs*, 
+ *3. Type of file*, 
+ *4. File access permissions*, 
+ *5. Date and time of last access*,  
+ *6. Date and time of last modification*,  
+ *7. Number of links to the file*, 
+ *8. Size of the file* 
+  *9. Addresses of blocks where the file is physically present*
+
+We can obtain the Inode number associated with a file by using the cmd:
+`ls -i <filename>`
+
+---
+### chmod:
+ It is used for changing the default permissions of files and directories
+`chmod +w <filename>` (Gives write permission to a file)
+
+> Example:
+> $touch file.txt
+> $chmod -w file.txt
+> $echo "Hey there!" > file.txt
+> bash: file.txt: Permission denied
+> $chmod +w file.txt
+> $echo "Hey there!" > file.txt
+> cat file.txt
+> Hey there
+
+To give `owner` write permission, use the cmd:
+`chmod u+w file.txt`
+
+
+## File and directory permissions
+
+Three types of permissions - Read `(R)`, Write `(W)` and Execute `(X)` (RWX). 
+ - R carries the value 4.
+ - W carries the value 2.
+ - X carries the value 1.
+
+### **ls - l**
+--- 
+* Displays the permission of all sub-directories and fills within the current directory.
+* A set of 9 characters denote these permissions. The permission string of a directory by default starts with a `d` and that of a file starts with a `-` sign.
+* There are three types of users:
+	* u -> Owner
+	* g -> Group
+	* o -> Outside
+
+* `-rw` : **Allowed**: Read, Write | **Disallowed**: Execute
+
+* All entities in `UNIX` are treated as files and all information related to these file are stored in an Inode (Index node) table.
+* For each file there is an Inode entry in the table. 
