@@ -180,6 +180,14 @@ Upon pressing *enter*, the file *file_name* is opened for us to type in our data
 - **cal**: Displays the calendar of the current month
 - **umask**: It shows what permissions are supposed to be denied or suppressed.
 		`Output: 0002`
+-**grep**: Stands for globally search for a regular expression and print it.
+	
+	`$touch file.txt`
+	`$echo "Hello There!" > file.txt`
+	`$cat file.txt`
+	`Hello There!`
+	`$grep "Hello" file.txt`
+	`*Hello* There!`
 
 ---
 ### Inode:
